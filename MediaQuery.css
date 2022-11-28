@@ -13,7 +13,7 @@
     }
 
     .Weather_Container{
-        height: 250vh;
+        height: 300vh;
         flex-direction: column;
         padding: 0.5em 0em;
     }

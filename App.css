@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Solway:wght@700;800&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Merriweather', serif;
+    font-family: 'Solway', serif;
+    font-weight: 700;
+
 }
 main{
     width: 100%;
@@ -33,7 +37,7 @@ header{
 }
 #App_Name span{
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 800;
     color: orange;
 }
 .App_Icon{
@@ -68,7 +72,7 @@ form{
 }
 #ErrorMsg{
     text-transform: capitalize;
-    font-size: 400;
+    font-weight: 400;
     background-color: red;
     font-size: 12px;
     font-style: italic;
@@ -98,7 +102,7 @@ form{
 .Weather_Container{
     margin: 1em 0em;
     width: 100%;
-    height: 70vh;
+    height: 90vh;
     padding: 0.5em 1em;
     display: flex;
     align-items: center;
@@ -147,6 +151,7 @@ form{
     height: 70%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 1em;
     padding: 0.5em;
 }
@@ -165,14 +170,11 @@ form{
     align-items: center;
     justify-content: center;
 }
-/* #WeatherConditionBox p{
-    height: 50%;    
+#WeatherConditionBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#WeatherConditionBox img{
-    border: 2px solid red;
-    height: 30%;
-    width: 100%;
-} */
 
 h5{
     font-size: 12px;
@@ -220,7 +222,7 @@ h5 i{
     gap: 0.2em;
 }
 
-.ForeCastItem .ForeCastItem-Details p{
+.ForeCastItem .ForeCastItem-Details p, .ConditionBox{
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -231,10 +233,9 @@ h5 i{
     gap: 0.4em;
     background-color: rgba(249, 246, 252, 0.144);
 }
-/* .ForeCastItem .ForeCastItem-Details p span{
-    display: block;
-    
-} */
+.ForeCastItem .ForeCastItem-Details .ConditionBox p{
+    background-color: transparent;
+}
 footer {
     width: 100%;
     height: 10vh;

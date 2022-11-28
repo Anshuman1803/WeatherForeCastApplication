@@ -1,4 +1,4 @@
-@media screen and (max-width: 620px) and (min-width: 120px) {
+@media screen and (max-width: 768px) and (min-width: 120px) {
     form{
         width: 100%;
         padding:0.5em;
@@ -34,7 +34,7 @@
    
     
     .ForeCastItem .ForeCastItem-Details{
-        grid-template-columns: repeat(1, 1.5fr);
+        grid-template-columns: repeat(1, 1fr);
     }
     
     footer {
@@ -72,7 +72,7 @@
     }
 }
 
-@media screen and (max-width: 1023px) and (min-width: 621px) {
+@media screen and (max-width: 1023px) and (min-width: 769px) {
     header{
         width: 100%;
         height: 5vh;

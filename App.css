@@ -31,6 +31,8 @@ header{
     position: fixed;
     top: 0;
 }
+
+
 #App_Name{
     font-weight: 700;
     font-size: 18px;
@@ -91,7 +93,6 @@ form{
     color: white;
     border: 1px solid white;
 }
-
 #SearchButton:hover{
     cursor: pointer;
     background-color: rgba(15, 10, 63, 0);
@@ -120,6 +121,7 @@ form{
     justify-content: center;
     border-radius: 5px;
 }
+
 .CurrentWeather_Container .CurrentWeather{
     border-radius: 5px;
     width: 100%;
@@ -153,6 +155,7 @@ form{
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 1em;
+
     padding: 0.5em;
 }
 .Weather_Item{
@@ -236,6 +239,14 @@ h5 i{
 .ForeCastItem .ForeCastItem-Details .ConditionBox p{
     background-color: transparent;
 }
+.WeatherForeCast .ForeCastItem .ForeCastItem-Details .ConditionBox img{
+    width: 50px;
+
+}
+#ConditionIcon img{
+    width: 50px;
+
+}
 footer {
     width: 100%;
     height: 10vh;
@@ -247,6 +258,8 @@ footer {
     background-color: #231c38;
     padding: 0.5em;
   }
+
+  
   footer .App-Logo {
     display: flex;
     flex-direction: row;

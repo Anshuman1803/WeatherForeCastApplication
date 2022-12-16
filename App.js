@@ -1,4 +1,4 @@
-// Api Key :   490fc732b297483db41120744222711;
+// Api Key : f7a60a2c5bef423690c135010221512
 const DefaultPlace = "Delhi";
 const CheckCity = /^[A-Za-z]+$/;
 
@@ -75,7 +75,9 @@ SearchButton.addEventListener('click', (event)=>{
 })
 
 const GetWeather =  (city) =>{
-    const url = `https://api.weatherapi.com/v1/forecast.json?key=490fc732b297483db41120744222711&q=${city}&days=7&aqi=no&alerts=no&units=metric`;
+    // const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ef6c520e86f78c747a590411d51c38ab`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=ef6c520e86f78c747a590411d51c38ab`;
+    
     fetch(url).then((resp) => resp.json())
     .then(data =>{ 
         ErrorMsg.style.opacity = 1;
@@ -99,65 +101,51 @@ const GetWeather =  (city) =>{
 const ShowWeather = (WeatherData) =>{
     console.log(WeatherData);
 
-    City.innerHTML = `${WeatherData.location.name}`;
-    Temperature.innerHTML =`${WeatherData.current.temp_c}`;
-    Condition.innerHTML = `${WeatherData.current.condition.text}`;
-    Humidity.innerHTML = `${WeatherData.current.humidity}`;
-    WindSpeed.innerHTML = `${WeatherData.current.wind_kph}`;
-    ConditionIconBox.innerHTML = `<img src="${WeatherData.current.condition.icon}" alt="Condition-Icon">`
+    City.innerHTML = `${WeatherData.city.name}`; 
+    Temperature.innerHTML =`${WeatherData.list[0].main.temp}`;
+    Condition.innerHTML = `${WeatherData.list[0].weather[0].description}`;
+    Humidity.innerHTML = `${WeatherData.list[0].main.humidity}`; 
+    WindSpeed.innerHTML = `${WeatherData.list[0].wind.speed}`;
+    ConditionIconBox.innerHTML =`<img src="http://openweathermap.org/img/wn/${WeatherData.list[0].weather[0].icon}@2x.png" alt="Condition-Icon">`
     
 
-    Day1.innerHTML = `${WeatherData.forecast.forecastday[1].date}`;
+    Day1.innerHTML = `${WeatherData.list[2].dt_txt}`;
+    Day1ConditionBox.innerHTML = `<p>Condition<span>${WeatherData.list[2].weather[0].description}</span> </p>
+    <img src="http://openweathermap.org/img/wn/${WeatherData.list[2].weather[0].icon}@2x.png" alt="Condition-Icon">`
+    Day1Temperature.innerHTML =  `${WeatherData.list[2].main.temp}`+"&deg;C" ;
+    Day1Humidity.innerHTML =  `${WeatherData.list[2].main.humidity}` + "&percnt;";
+    Day1Wind.innerHTML =  `${WeatherData.list[2].wind.speed}` + "Km/h";
 
-    Day1ConditionBox.innerHTML = `<p>Condition<span>${WeatherData.forecast.forecastday[1].day.condition.text}</span> </p>
-                                    <img src="${WeatherData.forecast.forecastday[1].day.condition.icon}" alt="Condition-Icon">`
+    Day2.innerHTML =  `${WeatherData.list[10].dt_txt}`;
+    Day2ConditionBox.innerHTML = `<p>Condition<span>${WeatherData.list[10].weather[0].description}</span> </p>
+    <img src="http://openweathermap.org/img/wn/${WeatherData.list[10].weather[0].icon}@2x.png" alt="Condition-Icon">`
+    Day2Temperature.innerHTML =  `${WeatherData.list[10].main.temp}`+"&deg;C" ;
+    Day2Humidity.innerHTML =   `${WeatherData.list[10].main.humidity}` + "&percnt;";
+    Day2Wind.innerHTML =  `${WeatherData.list[10].wind.speed}` + "Km/h";
 
-    Day1Temperature.innerHTML =  `${WeatherData.forecast.forecastday[1].day.avgtemp_c}`+"&deg;C" ;
-    Day1Humidity.innerHTML =  `${WeatherData.forecast.forecastday[1].day.avghumidity}` + "&percnt;";
-    Day1Wind.innerHTML =  `${WeatherData.forecast.forecastday[1].day.maxwind_kph}` + "Km/h";
+    Day3.innerHTML =  `${WeatherData.list[18].dt_txt}`;
+    Day3ConditionBox.innerHTML = `<p>Condition<span>${WeatherData.list[4].weather[0].description}</span> </p>
+    <img src="http://openweathermap.org/img/wn/${WeatherData.list[18].weather[0].icon}@2x.png" alt="Condition-Icon">`
+    Day3Temperature.innerHTML = `${WeatherData.list[18].main.temp}`+"&deg;C" ;
+    Day3Humidity.innerHTML =  `${WeatherData.list[18].main.humidity}` + "&percnt;";
+    Day3Wind.innerHTML =  `${WeatherData.list[18].wind.speed}` + "Km/h";
 
-    Day2.innerHTML = `${WeatherData.forecast.forecastday[2].date}`;
-    Day2ConditionBox.innerHTML = `<p>Condition<span>${WeatherData.forecast.forecastday[2].day.condition.text}</span> </p>
-                                    <img src="${WeatherData.forecast.forecastday[2].day.condition.icon}" alt="Condition-Icon">`
+    Day4.innerHTML = `${WeatherData.list[26].dt_txt}`;
+    Day4ConditionBox.innerHTML = `<p>Condition<span>${WeatherData.list[26].weather[0].description}</span> </p>
+    <img src="http://openweathermap.org/img/wn/${WeatherData.list[26].weather[0].icon}@2x.png" alt="Condition-Icon">`
+    Day4Temperature.innerHTML =   `${WeatherData.list[26].main.temp}`+"&deg;C" ;
+    Day4Humidity.innerHTML =   `${WeatherData.list[26].main.humidity}` + "&percnt;";
+    Day4Wind.innerHTML = `${WeatherData.list[26].wind.speed}` + "Km/h";
 
-    Day2Temperature.innerHTML =  `${WeatherData.forecast.forecastday[2].day.avgtemp_c}`+"&deg;C";
-    Day2Humidity.innerHTML =  `${WeatherData.forecast.forecastday[2].day.avghumidity}`+ "&percnt;";
-    Day2Wind.innerHTML =  `${WeatherData.forecast.forecastday[2].day.maxwind_kph}`+ "Km/h";
+    Day5.innerHTML = `${WeatherData.list[34].dt_txt}`;
+    Day5ConditionBox.innerHTML =    `<p>Condition<span>${WeatherData.list[34].weather[0].description}</span> </p>
+    <img src="http://openweathermap.org/img/wn/${WeatherData.list[34].weather[0].icon}@2x.png" alt="Condition-Icon">`
+    Day5Temperature.innerHTML =  `${WeatherData.list[34].main.temp}`+"&deg;C" ;
+    Day5Humidity.innerHTML =   `${WeatherData.list[34].main.humidity}` + "&percnt;";
+    Day5Wind.innerHTML = `${WeatherData.list[34].wind.speed}` + "Km/h";
 
-    Day3.innerHTML = `${WeatherData.forecast.forecastday[3].date}`;
-    Day3ConditionBox.innerHTML = `<p>Condition<span>${WeatherData.forecast.forecastday[3].day.condition.text}</span> </p>
-                                    <img src="${WeatherData.forecast.forecastday[3].day.condition.icon}" alt="Condition-Icon">`
-    Day3Temperature.innerHTML =  `${WeatherData.forecast.forecastday[3].day.avgtemp_c}`+"&deg;C";
-    Day3Humidity.innerHTML =  `${WeatherData.forecast.forecastday[3].day.avghumidity}`+ "&percnt;";
-    Day3Wind.innerHTML =  `${WeatherData.forecast.forecastday[3].day.maxwind_kph}`+ "Km/h";
 
-    Day4.innerHTML = `${WeatherData.forecast.forecastday[4].date}`;
-    Day4ConditionBox.innerHTML = `<p>Condition<span>${WeatherData.forecast.forecastday[4].day.condition.text}</span> </p>
-    <img src="${WeatherData.forecast.forecastday[4].day.condition.icon}" alt="Condition-Icon">`
-    Day4Temperature.innerHTML =  `${WeatherData.forecast.forecastday[4].day.avgtemp_c}`+"&deg;C";
-    Day4Humidity.innerHTML =  `${WeatherData.forecast.forecastday[4].day.avghumidity}`+ "&percnt;";
-    Day4Wind.innerHTML =  `${WeatherData.forecast.forecastday[4].day.maxwind_kph}`+ "Km/h";
-
-    Day5.innerHTML = `${WeatherData.forecast.forecastday[5].date}`;
-    Day5ConditionBox.innerHTML = `<p>Condition<span>${WeatherData.forecast.forecastday[5].day.condition.text}</span> </p>
-    <img src="${WeatherData.forecast.forecastday[5].day.condition.icon}" alt="Condition-Icon">`    
-    Day5Temperature.innerHTML =  `${WeatherData.forecast.forecastday[5].day.avgtemp_c}`+"&deg;C";
-    Day5Humidity.innerHTML =  `${WeatherData.forecast.forecastday[5].day.avghumidity}`+ "&percnt;";
-    Day5Wind.innerHTML =  `${WeatherData.forecast.forecastday[5].day.maxwind_kph}`+ "Km/h";
-
-    Day6.innerHTML = `${WeatherData.forecast.forecastday[6].date}`;
-    Day6ConditionBox.innerHTML = `<p>Condition<span>${WeatherData.forecast.forecastday[6].day.condition.text}</span> </p>
-    <img src="${WeatherData.forecast.forecastday[6].day.condition.icon}" alt="Condition-Icon">`
-    Day6Temperature.innerHTML =  `${WeatherData.forecast.forecastday[6].day.avgtemp_c}`+"&deg;C";
-    Day6Humidity.innerHTML =  `${WeatherData.forecast.forecastday[6].day.avghumidity}`+ "&percnt;";
-    Day6Wind.innerHTML =  `${WeatherData.forecast.forecastday[6].day.maxwind_kph}`+ "Km/h";
-
-   
 };
-// .then(err => console.log(err));
-
-
-
 
 let SystemDate = new Date();
 CurrentDate.innerHTML = SystemDate.getDate()+"/"+ (SystemDate.getMonth()+1) +"/"+ SystemDate.getFullYear();

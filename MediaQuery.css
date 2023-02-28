@@ -1,0 +1,149 @@
+@media screen and (max-width: 768px) and (min-width: 120px) {
+    form{
+        width: 100%;
+        padding:0.5em;
+        flex-direction: column;
+        height: 25vh;
+    }
+    .Search_Field{
+        width: 90%;
+    }
+    #SearchButton{
+        width: 40%;
+    }
+
+    .Weather_Container{
+        height: 320vh;
+        flex-direction: column;
+        padding: 0.5em 0em;
+    }
+    
+    .CurrentWeather_Container{
+        width: 100%;
+        height: 35%;
+    }
+    
+    .WeatherForecast_Container{
+        width: 100%;
+        height: 65%;
+    }
+    .WeatherForecast_Container .WeatherForeCast{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 2fr);
+    }
+   
+    
+    .ForeCastItem .ForeCastItem-Details{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    footer {
+        height: 25vh;
+        flex-direction: column;
+        padding: 1em 0em;
+        gap: 1em;
+    }
+
+    footer .App-Logo {
+        width: 100%;
+        height: 30%;
+    }
+
+    footer .App-Logo #App-Name {
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+     footer .App-Logo #App-Name span {
+        font-weight: 600;
+        font-size: 15px;
+        color: orange;
+    }
+
+    footer .DesignerInfo {
+        width: 90%;
+        height: 30%;
+        font-size: 15px;
+    }
+
+     footer .SocialMedia {
+        width: 100%;
+        height: 30%;
+    }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 769px) {
+    header{
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1c538efd;
+        position: fixed;
+        top: 0; 
+    } 
+    /* Form Style */
+    form{
+        margin-top: 5em;
+        width: 100%;
+        padding:0.5em;
+        flex-direction: column;
+        height: 15vh;
+    }
+    .Search_Field{
+        width: 70%;
+    }
+    #SearchButton{
+        width: 50%;
+    }
+   
+ 
+    .CurrentWeather_Container{
+        width: 40%;
+    }
+   
+     .Weather_Details{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .WeatherForecast_Container{
+        width: 60%;
+    }
+    .WeatherForecast_Container .WeatherForeCast{
+        grid-template-columns: repeat(2, 2fr);
+    }
+    footer {
+        height: 20vh;
+        flex-direction: column;
+        padding: 1em 0em;
+        gap: 1em;
+    }
+
+    footer .App-Logo {
+        width: 100%;
+        height: 30%;
+    }
+
+    footer .App-Logo #App-Name {
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+     footer .App-Logo #App-Name span {
+        font-weight: 600;
+        font-size: 15px;
+        color: orange;
+    }
+
+    footer .DesignerInfo {
+        width: 90%;
+        height: 30%;
+        font-size: 15px;
+    }
+
+     footer .SocialMedia {
+        width: 100%;
+        height: 30%;
+    }
+}
